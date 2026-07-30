@@ -22,6 +22,7 @@ const skillGroups = [
       { name: "MySQL", logo: "https://cdn.simpleicons.org/mysql" },
       { name: ".NET MAUI", logo: "https://cdn.simpleicons.org/dotnet" },
       { name: "Google Colab", logo: "https://cdn.simpleicons.org/googlecolab" },
+      { name: "Linux", logo: "https://cdn.pixabay.com/photo/2017/01/31/15/33/linux-2025130_1280.png" },
       {
         name: "Visual Studio Code",
         logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/1280px-Visual_Studio_Code_1.35_icon.svg.png?_=20210804221519",

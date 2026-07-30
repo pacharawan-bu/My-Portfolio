@@ -25,6 +25,8 @@ function MyProject() {
       coverImage: "https://i.postimg.cc/sfmk9ZVf/uxuipic.png",
       media: [
         { type: 'image', url: "https://i.postimg.cc/sfmk9ZVf/uxuipic.png" },
+        { type: 'image', url: "https://i.postimg.cc/3NVgsKjL/uxuipic2.png" },
+        { type: 'image', url: "https://i.postimg.cc/GtVkWcP5/uxuipic3.png" },
         { type: 'video', url: "https://drive.google.com/file/d/18ufHbSMO2fJKM0sWc8-rad1xfVQwXXFi/preview" }
       ]
     },
