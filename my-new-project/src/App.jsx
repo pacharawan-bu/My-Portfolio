@@ -8,8 +8,8 @@ import Certificate from "./Certificate.jsx";
 import Activity from "./Activity.jsx";
 import Contact from "./Contact.jsx";
 import Emailme from "./Emailme.jsx";
-import PlaceholderPage from "./PlaceholderPage.jsx";
-import ThemeToggle from "./ThemeToggle.jsx";
+import PlaceholderPage from "./Placeholderpage.jsx";
+import ThemeToggle from "./Themetoggle.jsx";
 import "./index.css";
 
 // -----------------------------------------------------------------------
