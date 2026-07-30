@@ -1,0 +1,2192 @@
+@font-face {
+  font-family: IntelOneMono;
+  src: url("../src/assets/fonts/IntelOneMono-Regular.ttf");
+}
+
+@font-face {
+  font-family: IntelOneMono1;
+  src: url("../src/assets/fonts/IntelOneMono-SemiBold.ttf");
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.page {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  padding: 0 20px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  transition: background 0.3s ease;
+}
+
+.theme-light {
+  background: #BFE3F9;
+}
+
+.theme-dark {
+  background: #4C5D8C;
+}
+
+/* ---------- decorative wavy blobs ---------- */
+.blob {
+  position: absolute;
+  width: 620px;
+  height: 950px;
+  border-radius: 48% 52% 58% 42% / 52% 46% 54% 48%;
+  z-index: 0;
+  transition: background 0.3s ease;
+}
+
+.theme-light .blob {
+  background: #FBF3DC;
+}
+
+.theme-dark .blob {
+  background: #EFE2B4;
+}
+
+.blob--left {
+  left: -320px;
+  top: -140px;
+  transform: rotate(-8deg);
+}
+
+.blob--right {
+  right: -320px;
+  top: 60px;
+  transform: rotate(15deg);
+}
+
+.theme-dark .sidebar-btn {
+  background: #F5ECD1;
+  border: 2px solid #E4D3A0;
+  color: #3B4C7B;
+}
+
+.theme-dark .content-header {
+  background: #4C5D8C;
+  border: 2px solid #F5ECD1;
+}
+
+.theme-dark .content{
+    background: #F5E8C7;
+}
+
+.theme-dark .about-content{
+    background: #818FB4;
+}
+
+.theme-dark .about-text__body{
+    color: white;
+}
+
+.theme-dark .about-text__title{
+    color: white;
+}
+
+
+
+/* ---------- theme toggle ---------- */
+.theme-toggle {
+  position: absolute;
+  top: 24px;
+  right: 28px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.theme-toggle__switch {
+  width: 56px;
+  height: 28px;
+  border-radius: 999px;
+  border: 1.5px solid transparent;
+  padding: 3px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: background 0.2s ease;
+}
+
+.theme-toggle__switch.is-light {
+  background: #ffffff;
+  justify-content: flex-end;
+}
+
+.theme-toggle__switch.is-dark {
+  background: #2E3A57;
+  border: 1.5px solid #EFE2B4;
+  justify-content: flex-start;
+}
+
+.theme-toggle__knob {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #EFEAD8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+.theme-toggle__switch.is-dark .theme-toggle__knob {
+  color: #2E3A57;
+}
+
+.theme-toggle__label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.theme-light .theme-toggle__label {
+  color: #ffffff;
+}
+
+.theme-dark .theme-toggle__label {
+  color: #1E2438;
+}
+
+/* ---------- card (home screen) ---------- */
+.card {
+  position: relative;
+  z-index: 1;
+  width: 380px;
+  max-width: 100%;
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(6px);
+  border-radius: 28px;
+  padding: 40px; 
+  padding-top: 10px;
+  box-shadow: 0 20px 40px rgba(30, 60, 90, 0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  transition: background 0.3s ease;
+  align-self: center;
+  margin: auto;
+  
+}
+
+.card h1{
+  font-family: 'IntelOneMono1', monospace;
+  font-size: 28px;
+  color: #002998;
+  
+  background: #FFFCEF;
+  padding: 8px 24px;      /* บน-ล่าง 8px, ซ้าย-ขวา 24px (ปรับให้กว้าง/แคบได้ตามชอบ) */
+  border-radius: 20px;
+}
+
+.theme-dark .card h1 {
+  background: #3E3865; 
+}
+
+.theme-dark .card h1{
+  color: #F5ECD1;
+}
+
+.theme-dark .card {
+  background: #8489AC;
+  backdrop-filter: none;
+}
+
+.card-flag {
+  position: absolute;
+  top: -18px;
+  right: 60px;
+  width: 26px;
+  height: 26px;
+  background: #FBF3DC;
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+  transform: rotate(0deg);
+}
+
+/* ---------- photo ---------- */
+.card-image {
+  width: 90%;
+  padding: 10%;
+  height: auto;
+  background: #FFFCEF;
+  border-radius: 180px;
+  display: block;
+
+}
+
+.theme-dark .card-image{
+  background: #E4D3A0;
+}
+
+/* ---------- nav buttons (home screen) ---------- */
+.nav-row {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.nav-card {
+  width: 90px;   /* อาจจะขยายความกว้างปุ่มนิดหน่อยเผื่อข้อความยาว */
+  height: 96px;  /* ขยายความสูงปุ่ม เพื่อเพิ่มพื้นที่ให้ข้อความ */
+  background: #FFFCEF;
+  border: none;
+  border-radius: 18px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+  display: flex;
+  
+  /* เพิ่ม 2 บรรทัดนี้เพื่อให้เรียงบนลงล่าง และมีระยะห่าง */
+  flex-direction: column; 
+  gap: 8px; 
+  
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.3s ease;
+  padding: 8px; /* เพิ่ม padding กันข้อความชิดขอบเกินไป */
+}
+
+.nav-card__label {
+  font-size: 10px;
+  font-weight: 900;
+  font-family: 'IntelOneMono', monospace;
+  color: #3B4C7B; /* สีข้อความโหมดสว่าง */
+  text-align: center;
+  line-height: 1.1;
+}
+
+/* 3. เพิ่มสีข้อความสำหรับโหมดมืด (Dark Theme) */
+.theme-dark .nav-card__label {
+  color: #F5ECD1;
+}
+
+.theme-dark .nav-card {
+  background: #3E3865;
+}
+
+.theme-dark .nav-card__placeholder {
+  background: #C9CBEA;
+  opacity: 0.9;
+}
+
+.nav-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.14);
+}
+
+.nav-card:focus-visible {
+  outline: 3px solid #4FA3E3;
+  outline-offset: 3px;
+}
+
+.nav-card__icon {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* --- SPACE RESERVED FOR ICON IMAGE --- */
+.nav-card__placeholder {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: #6EBBF2;
+  opacity: 0.4;
+  display: block;
+}
+
+@media (max-width: 480px) {
+  .card {
+    width: 100%;
+    padding: 20px;
+  }
+  
+  /* 1. ปรับขนาดกรอบปุ่มให้สมดุล */
+  .nav-card {
+    width: 75px;
+    height: 85px;
+    gap: 4px; /* ลดช่องว่างระหว่างไอคอนกับข้อความ */
+    padding: 6px;
+  }
+  
+  /* 2. ย่อไอคอนลงเพื่อไม่ให้ล้นกรอบ */
+  .nav-card__icon {
+    width: 40px; 
+    height: 40px;
+  }
+  
+  /* 3. ย่อขนาดฟอนต์ลงนิดหน่อย */
+  .nav-card__label {
+    font-size: 9px;
+  }
+}
+
+
+
+/* =========================================================
+   Sidebar + page layout (About me / My Project / etc.)
+   - sidebar is pinned near the left edge of the viewport
+   - content panel is centered on the full viewport, independent
+     of the sidebar's width
+   ========================================================= */
+.layout {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 750px; 
+  height: 100vh; /* 1. บังคับความสูงให้เท่าหน้าจอพอดี */
+  padding: 24px 0; /* 2. เพิ่มขอบบน-ล่างให้การ์ดไม่ชนขอบจอเกินไป */
+  margin: 0 auto; 
+  display: flex;           /* 3. เพิ่ม Flexbox */
+  flex-direction: column;  /* 4. ให้เรียงจากบนลงล่าง */
+}
+
+.sidebar {
+  position: absolute;
+  top: 48px; 
+  right: 100%;
+  margin-right: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 18px;
+}
+
+.sidebar-btn {
+  min-width: 160px;
+  padding: 14px 20px;
+  border-radius: 15px;
+  background: #FFFCEF;
+  border: 2px solid #7FB8E8;
+  color: #7FB8E8;
+  font-family: 'IntelOneMono', monospace;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+
+.sidebar-btn:hover {
+  transform: translateY(-2px);
+}
+
+.sidebar-btn.is-active {
+  background: #7FB8E8;
+  color: #FFFCEF;
+  border-style: solid;
+}
+
+.theme-dark .sidebar-btn.is-active{
+  background: #818FB4;
+  color: #F5E8C7;
+  border-style: solid;
+}
+
+.content {
+  background: #FFFCEF;
+  display: flex;
+  flex-direction: column;
+  width: 100%; 
+  flex-grow: 1;    /* 1. ให้กล่องเนื้อหาขยายเต็มพื้นที่ที่เหลือ */
+  min-height: 0;   /* 2. สำคัญมาก! ป้องกันไม่ให้เนื้อหาดันกล่องจนทะลุหน้าจอ */
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+.content-header {
+  background: #BFE3F9;
+  border: 2px solid transparent;
+  border-radius: 16px;
+  padding: 20px 28px;
+  text-align: center;
+  font-family: 'IntelOneMono1', monospace;
+  font-size: large;
+  margin: 24px 24px 0 24px;
+}
+
+.content-header__title {
+  margin: 0;
+  color: #ffffff;
+  font-size: 26px;
+  font-weight: 800;
+}
+
+.page-panel {
+  background: transparent;
+  padding: 28px;
+  flex-grow: 1;
+  min-height: 0;      /* ✨ เพิ่มบรรทัดนี้! บังคับไม่ให้กล่องทะลุจอ */
+  overflow-y: auto;   /* ✨ เปลี่ยนจาก scroll เป็น auto ให้แสดงแถบเลื่อนเมื่อจำเป็น */
+}
+
+/* ---------- About Me page ---------- */
+.about-content {
+  background: #FFFFFF; 
+  padding: 32px; 
+  border-radius: 16px; 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); 
+  
+  /* เปลี่ยนจากการใช้ flex เป็น block เพื่ออนุญาตให้ข้อความไหลล้อมรอบได้ */
+  display: block;
+}
+
+/* เพิ่ม Clearfix ป้องกันปัญหากรอบพื้นหลังหดตัวในกรณีที่รูปยาวกว่าข้อความ */
+.about-content::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* ---------- About Me page ---------- */
+/* สร้างกล่องครอบ เพื่อจัดเรียงรูปภาพทั้ง 3 ให้อยู่ในบรรทัดเดียวกันและอยู่ตรงกลาง */
+.about-pic-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;           /* ระยะห่างระหว่างรูปน้องแมวกับรูปโปรไฟล์ */
+  margin-bottom: 24px; /* ระยะห่างจากข้อความด้านล่าง */
+}
+
+/* รูปโปรไฟล์ตรงกลาง */
+.about-pic {
+  width: 200px;
+  height: 200px;
+  flex-shrink: 0; /* ป้องกันไม่ให้รูปโดนบีบ */
+}
+
+.about-pic__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+  background: #bfedff;
+}
+
+.theme-dark .about-pic__img {
+  background: #4C5D8C;
+}
+
+/* ---------- About Me: profile pic frame matches theme accent ---------- */
+.about-pic__img {
+  border: 4px solid #7FB8E8;      /* กรอบสีฟ้า ให้เข้าธีม light เหมือนปุ่ม sidebar/nav-card */
+  box-shadow: 4px 4px 0 rgba(46, 58, 87, 0.18); /* เงาสไตล์ sticker เหมือน badge-pic */
+  transform: rotate(-1deg);       /* เอียงนิดๆ ให้ดูเป็น polaroid เหมือนกับ badge-pic */
+}
+
+.theme-dark .about-pic__img {
+  border-color: #F5ECD1;          /* เปลี่ยนเป็นครีมตอน dark mode */
+  box-shadow: 4px 4px 0 rgba(245, 236, 209, 0.18);
+}
+
+@media (max-width: 600px) {
+  .about-pic__img {
+    transform: none;              /* กันเอียงล้นจอมือถือ ให้เข้าคู่กับ media query เดิมของ .card/.badge-pic */
+  }
+}
+
+/* รูปน้องแมวขนาบข้าง */
+.addition-pic {
+  width: 80px; /* ขนาดของรูปลูกแมวในโหมด PC */
+  height: auto;
+  flex-shrink: 0;
+}
+
+/* ส่วนของข้อความ ปรับให้เป็น block ธรรมดา */
+.about-text {
+  font-family: 'IntelOneMono', monospace;
+  display: block;
+}
+
+.about-text__title {
+  margin: 0 0 8px;
+  color: #2E3A57;
+  font-size: 18px;
+}
+
+
+/* =========================================================
+   Responsive: ปรับขนาดรูปลงสำหรับโหมดหน้าจอมือถือ
+   ========================================================= */
+@media (max-width: 600px) {
+  .about-pic-wrapper {
+    gap: 12px; /* ลดช่องว่างระหว่างรูปภาพลง */
+  }
+
+  .about-pic {
+    width: 120px; /* ลดขนาดรูปโปรไฟล์ */
+    height: 120px;
+  }
+
+  .addition-pic {
+    width: 50px; /* ลดขนาดรูปน้องแมว */
+  }
+}
+
+/* ---------- Certificate page ---------- */
+.certificate-content {
+  flex-direction: column;   /* รูปอยู่บน ข้อความอยู่ล่างเสมอ ไม่ต้องรอ media query */
+  align-items: center;
+  text-align: center;
+}
+
+.badge-pic {
+  width: 1080px;             /* ขยายจาก 130px ให้เห็นรายละเอียดชัดขึ้น */
+  height: auto;
+  max-width: 100%;
+  flex-shrink: 0;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+@media (max-width: 480px) {
+  .badge-pic {
+    width: 220px;
+    height: 220px;
+  }
+}
+
+.pdf-viewer-wrapper {
+  margin-top: 24px;
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  
+  /* สิ่งที่เพิ่มเข้ามาเพื่อให้เหมือนการ์ดรูป AWS */
+  background: #FFFFFF; /* พื้นหลังโหมดสว่าง */
+  padding: 32px;       /* ระยะขอบด้านในให้เท่ากับการ์ดรูป AWS */
+}
+
+/* เพิ่มส่วนนี้เข้าไปเพื่อให้พื้นหลัง PDF เปลี่ยนสีตาม Dark Mode ด้วย */
+.theme-dark .pdf-viewer-wrapper {
+  background: #818FB4;
+}
+
+.pdf-viewer {
+  width: 100%;
+  height: 600px;
+  border: none;
+  border-radius: 8px; /* (ถ้าต้องการ) เพิ่มความโค้งมนให้ตัวกรอบ PDF เล็กน้อยเพื่อให้ดูนุ่มนวลขึ้น */
+}
+
+.cert-pdf-link {
+  display: block;
+  margin-top: 12px;
+  text-align: center;
+  color: #7FB8E8;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.cert-pdf-link:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+  .pdf-viewer {
+    height: 400px;
+  }
+}
+
+.ncsacer-text__title {
+  text-align: center;     /* จัดข้อความให้อยู่กึ่งกลาง */
+  color: #2E3A57;         /* สีข้อความโหมดสว่าง (ให้เหมือนฝั่ง AWS) */
+  
+  font-size: 18px;
+  margin: 20px 0 8px 0;   /* เว้นระยะห่างจากรูปด้านบน 20px และด้านล่าง 8px */
+}
+
+.ncsacer-text__body {
+  text-align: center;     /* จัดข้อความให้อยู่กึ่งกลาง */
+  color: #4A4A4A;         /* สีข้อความโหมดสว่าง */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* รองรับ Dark Theme ให้ตัวหนังสือเปลี่ยนเป็นสีขาว */
+.theme-dark .ncsacer-text__title,
+.theme-dark .ncsacer-text__body {
+  color: white;
+}
+
+
+/* =========================================================
+   Activity page
+   ========================================================= */
+.activity-content {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto; /* ✨ เปลี่ยนจาก align-self: center เป็นตัวนี้แทน */
+  gap: 8px;
+  width: 90%;
+}
+
+.activity-card {
+  background: #FFFFFF;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  display: flex;
+  margin-top: 24px;
+  gap: 24px;
+  align-items: flex-start;
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+/* รองรับ Dark Mode สำหรับการ์ดกิจกรรม */
+.theme-dark .activity-card {
+  background: #818FB4;
+}
+
+/* --- พื้นที่สำหรับใส่รูปกิจกรรม --- */
+.activity-pic__placeholder {
+  width: 120px;
+  height: 120px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: repeating-linear-gradient(
+    45deg,
+    #e2e2e2,
+    #e2e2e2 10px,
+    #d5d5d5 10px,
+    #d5d5d5 20px
+  );
+}
+
+.theme-dark .activity-pic__placeholder {
+  background: repeating-linear-gradient(
+    45deg,
+    #5A6B9C,
+    #5A6B9C 10px,
+    #4C5D8C 10px,
+    #4C5D8C 20px
+  );
+}
+
+/* --- ส่วนข้อความในกิจกรรม --- */
+.activity-text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.activity-date {
+  font-family: 'IntelOneMono', monospace;
+  font-size: 13px;
+  color: #7FB8E8;
+  font-weight: 700;
+}
+
+.theme-dark .activity-date {
+  color: #F5ECD1; /* ใช้สีครีมสว่างในโหมดมืด */
+}
+
+.activity-text__title {
+  margin: 0;
+  color: #2E3A57;
+  font-size: 18px;
+  font-family: 'IntelOneMono1', monospace;
+}
+
+.activity-text__body {
+  margin: 0;
+  color: #4A4A4A;
+  line-height: 1.5;
+  font-size: 15px;
+}
+
+.theme-dark .activity-text__title,
+.theme-dark .activity-text__body {
+  color: #ffffff;
+}
+
+/* สำหรับมือถือ ให้รูปอยู่ด้านบน ข้อความอยู่ด้านล่าง */
+@media (max-width: 480px) {
+  .activity-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .activity-pic__placeholder {
+    width: 100%;
+    max-width: 200px;
+    height: 140px;
+  }
+}
+
+/* =========================================================
+   Activity Modal (Pop-up Image Slider)
+   ========================================================= */
+
+/* พื้นหลังสีดำโปร่งแสง คลุมเต็มจอ */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* พื้นหลังโปร่งแสง — fade in/out ตาม modalStage */
+.modal-overlay {
+  opacity: 0;
+  transition: opacity 0.28s ease;
+}
+
+.modal-overlay.stage-active {
+  opacity: 1;
+}
+
+.modal-overlay.stage-exit {
+  opacity: 0;
+  transition: opacity 220ms ease; /* ต้อง match EXIT_DURATION ใน .jsx */
+}
+
+/* กล่อง Pop-up ตรงกลาง */
+.modal-content {
+  background: #FFFCEF; /* สีพื้นหลังโหมดสว่าง */
+  width: 100%;
+  max-width: 800px;
+  border-radius: 20px;
+  padding: 24px;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-height: 90vh;
+  overflow-y: hidden;
+
+  /* สถานะเริ่มต้น (mount ตอน modalStage === 'entering') */
+  opacity: 0;
+  transform: translateY(20px) scale(0.96);
+  transition: opacity 0.28s ease, transform 0.28s ease;
+}
+
+/* modalStage === 'active' */
+.modal-content.stage-active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* modalStage === 'exiting' — ต้อง match EXIT_DURATION = 220 ใน .jsx */
+.modal-content.stage-exit {
+  opacity: 0;
+  transform: translateY(20px) scale(0.96);
+  transition: opacity 220ms ease, transform 220ms ease;
+}
+
+/* Slider: เลื่อนรูป/วิดีโอเข้าตามทิศทาง next/prev */
+@keyframes slideInNext {
+  from { opacity: 0; transform: translateX(28px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInPrev {
+  from { opacity: 0; transform: translateX(-28px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.slide-next {
+  animation: slideInNext 0.25s ease;
+}
+
+.slide-prev {
+  animation: slideInPrev 0.25s ease;
+}
+
+/* รองรับโหมดมืด */
+.theme-dark .modal-content {
+  background: #4C5D8C;
+  border: 2px solid #F5ECD1;
+  color: #FFFFFF;
+}
+
+/* ปุ่มกากบาทปิด */
+.modal-close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: #FF5A5F;
+  color: white;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, background 0.2s ease;
+  z-index: 10;
+}
+
+.modal-close-btn:hover {
+  background: #E0484D;
+  transform: scale(1.1);
+}
+
+.modal-title {
+  margin: 0;
+  font-family: 'IntelOneMono1', monospace;
+  font-size: 22px;
+  color: #002998;
+  padding-right: 40px;
+}
+
+.theme-dark .modal-title {
+  color: #F5ECD1;
+}
+
+/* ส่วนของ Slider เลื่อนรูป */
+.modal-slider {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.slider-image-container {
+  width: 100%;
+  height: 500px;
+  max-height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.05);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.theme-dark .slider-image-container {
+  background: rgba(0,0,0,0.2);
+}
+
+.slider-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* รูปจะไม่บิดเบี้ยว */
+}
+
+/* ปุ่มเลื่อนซ้าย-ขวา */
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.8);
+  border: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  font-size: 20px;
+  color: #3B4C7B;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.slider-btn:hover {
+  background: #ffffff;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.slider-btn.left {
+  left: 10px;
+}
+
+.slider-btn.right {
+  right: 10px;
+}
+
+/* รองรับโหมดมืดสำหรับปุ่มเลื่อน */
+.theme-dark .slider-btn {
+  background: rgba(62, 56, 101, 0.9);
+  color: #F5ECD1;
+}
+.theme-dark .slider-btn:hover {
+  background: rgba(62, 56, 101, 1);
+}
+
+/* ตัวบอกตำแหน่งหน้า (เช่น 1 / 3) */
+.slider-indicator {
+  text-align: center;
+  font-family: 'IntelOneMono', monospace;
+  font-weight: bold;
+  color: #4A4A4A;
+  margin-top: 8px;
+}
+
+.theme-dark .slider-indicator {
+  color: #F5ECD1;
+}
+
+/* Responsive สำหรับมือถือ */
+@media (max-width: 600px) {
+  .slider-image-container {
+    height: 300px;
+  }
+  
+  .slider-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+  }
+}
+
+/* =========================================================
+   Contact Links
+   ========================================================= */
+.contact-link {
+  color: #7FB8E8; /* สีฟ้าให้เข้ากับปุ่ม Sidebar */
+  text-decoration: none;
+  font-family: 'IntelOneMono', monospace;
+  font-weight: bold;
+  transition: color 0.2s ease;
+}
+
+.contact-link:hover {
+  text-decoration: underline;
+  color: #4FA3E3;
+}
+
+/* รองรับโหมดมืด (Dark Theme) */
+.theme-dark .contact-link {
+  color: #F5ECD1; /* สีครีมสว่าง */
+}
+
+.theme-dark .contact-link:hover {
+  color: #FFFFFF;
+}
+
+/* =========================================================
+   Contact Item & Copy Button
+   ========================================================= */
+/* จัดให้ข้อความและปุ่ม Copy อยู่ในบรรทัดเดียวกัน */
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap; /* ถ้าจอมือถือเล็กมาก จะปัดปุ่มลงบรรทัดล่างให้ */
+}
+
+/* สไตล์ของปุ่ม Copy */
+.copy-btn {
+  background: #F5F5F5;
+  border: 1px solid #D5D5D5;
+  border-radius: 8px;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-family: 'IntelOneMono', monospace;
+  color: #4A4A4A;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.copy-btn:hover {
+  background: #E8E8E8;
+  border-color: #7FB8E8;
+  transform: translateY(-1px);
+}
+
+.copy-btn:active {
+  transform: translateY(1px);
+  box-shadow: none;
+}
+
+/* รองรับโหมดมืด (Dark Theme) สำหรับปุ่ม Copy */
+.theme-dark .copy-btn {
+  background: #3B4C7B;
+  border-color: #4C5D8C;
+  color: #F5ECD1;
+}
+
+.theme-dark .copy-btn:hover {
+  background: #2E3A57;
+  border-color: #F5E8C7;
+}
+
+/* =========================================================
+   Email Me page
+   ========================================================= */
+.email-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.email-title {
+  font-family: 'IntelOneMono1', monospace;
+  font-size: 20px;
+  color: #000000;
+  margin: 0;
+}
+
+/* รองรับโหมดมืดสำหรับหัวข้อ */
+.theme-dark .email-title {
+  color: #ffffff;
+}
+
+.email-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.email-textarea {
+  width: 100%;
+  height: 240px;
+  border: 1px solid #d5d5d5;
+  border-radius: 12px;
+  padding: 16px;
+  font-family: inherit;
+  font-size: 16px;
+  resize: none;
+  background: #ffffff;
+  color: #333333;
+  outline: none;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.03);
+  transition: border-color 0.2s ease, background 0.3s ease;
+}
+
+.email-textarea:focus {
+  border-color: #6EBBF2;
+}
+
+/* รองรับโหมดมืดสำหรับ Textarea ให้สีกลืนกับกล่องด้านหลังเหมือนหน้า About */
+.theme-dark .email-textarea {
+  background: #818FB4;
+  border: 1px solid #4C5D8C;
+  color: #ffffff;
+}
+.theme-dark .email-textarea:focus {
+  border-color: #F5E8C7;
+}
+
+.email-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.email-counter {
+  font-family: 'IntelOneMono', monospace;
+  font-size: 14px;
+  color: #999999;
+}
+
+/* รองรับโหมดมืดสำหรับตัวนับตัวอักษร */
+.theme-dark .email-counter {
+  color: #d5d5d5;
+}
+
+.email-submit-btn {
+  background: #6EBBF2;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 32px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.email-submit-btn:hover {
+  background: #4FA3E3;
+}
+
+.email-submit-btn:active {
+  transform: scale(0.95);
+}
+
+/* รองรับโหมดมืดสำหรับปุ่มส่ง (ถ้าต้องการปรับสีปุ่มในโหมดมืด) */
+.theme-dark .email-submit-btn {
+  background: #3B4C7B;
+}
+.theme-dark .email-submit-btn:hover {
+  background: #2E3A57;
+}
+
+/* =========================================================
+   Email Input Styles (Subject & Sender Email)
+   ========================================================= */
+.email-input {
+  width: 100%;
+  height: 48px;
+  border: 1px solid #d5d5d5;
+  border-radius: 12px;
+  padding: 0 16px;
+  font-family: inherit;
+  font-size: 16px;
+  background: #ffffff;
+  color: #333333;
+  outline: none;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.03);
+  transition: border-color 0.2s ease, background 0.3s ease;
+}
+
+.email-input:focus {
+  border-color: #6EBBF2;
+}
+
+/* รองรับโหมดมืดสำหรับ Input */
+.theme-dark .email-input {
+  background: #818FB4;
+  border: 1px solid #4C5D8C;
+  color: #ffffff;
+}
+
+.theme-dark .email-input:focus {
+  border-color: #F5E8C7;
+}
+
+/* เปลี่ยนสี Placeholder (ตัวหนังสือสีเทาๆ ตอนยังไม่พิมพ์) ในโหมดมืดให้สว่างขึ้น */
+.theme-dark .email-input::placeholder,
+.theme-dark .email-textarea::placeholder {
+  color: #dcdcdc;
+}
+
+/* --- SPACE RESERVED FOR PROFILE ICON IMAGE --- */
+.about-pic__placeholder {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background: repeating-linear-gradient(
+    45deg,
+    #e2e2e2,
+    #e2e2e2 10px,
+    #d5d5d5 10px,
+    #d5d5d5 20px
+  );
+}
+
+.about-text {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.about-text__title {
+  margin: 0 0 8px;
+  color: #2E3A57;
+  font-size: 18px;
+}
+
+/* ---------- About Me: quick facts as pill chips ---------- */
+.about-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 10px;
+  margin: 4px 0 6px;
+}
+
+.about-fact {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: #FFFCEF;
+  border: 2px solid #7FB8E8;
+  color: #3B4C7B;
+  font-family: 'IntelOneMono', monospace;
+  font-size: 12.5px;
+  font-weight: 700;
+  box-shadow: 2px 2px 0 rgba(46, 58, 87, 0.15);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.about-facts .about-fact:nth-child(odd) { transform: rotate(-1.5deg); }
+.about-facts .about-fact:nth-child(even) { transform: rotate(1.5deg); }
+
+.about-fact:hover {
+  transform: translate(-1px, -1px) rotate(0deg);
+  box-shadow: 3px 3px 0 rgba(46, 58, 87, 0.2);
+}
+
+.theme-dark .about-fact {
+  background: #3E3865;
+  border-color: #F5ECD1;
+  color: #F5ECD1;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.25);
+}
+
+/* ---------- About Me: bio paragraph, less "resume", more "note" ---------- */
+.about-bio {
+  margin: 4px 0 0;
+  padding-left: 14px;
+  border-left: 3px solid #7FB8E8;
+  font-family: 'IntelOneMono', monospace;
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: #4A4A4A;
+}
+
+.about-bio strong {
+  color: #2E3A57;
+}
+
+.theme-dark .about-bio {
+  border-left-color: #F5ECD1;
+  color: #F5E8C7;
+}
+
+.theme-dark .about-bio strong {
+  color: #ffffff;
+}
+
+/* ---------- About Me: Education as a sticky-note card ---------- */
+.about-note {
+  margin-top: 4px;
+  padding: 14px 18px;
+  max-width: 360px;
+  background: #FBF3DC;
+  border: 2px dashed #E4D3A0;
+  border-radius: 12px;
+  transform: rotate(-0.6deg);
+}
+
+.about-note__label {
+  display: block;
+  font-family: 'IntelOneMono1', monospace;
+  font-size: 13px;
+  color: #2E3A57;
+  margin-bottom: 4px;
+}
+
+.about-note__body {
+  margin: 0;
+  font-family: 'IntelOneMono', monospace;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: #4A4A4A;
+}
+
+.theme-dark .about-note {
+  background: #3E3865;
+  border-color: #F5ECD1;
+}
+
+.theme-dark .about-note__label,
+.theme-dark .about-note__body {
+  color: #F5ECD1;
+}
+
+@media (max-width: 600px) {
+  .about-fact {
+    font-size: 11.5px;
+    padding: 5px 12px;
+  }
+  .about-note {
+    max-width: 100%;
+  }
+}
+
+.placeholder-text {
+  color: #999;
+}
+
+/* =========================================================
+   Responsive: เปลี่ยน Sidebar เป็น Menu Bar ด้านล่าง (Tablet & Mobile)
+   ========================================================= */
+@media (max-width: 720px) {
+  .blob {
+    display: none; 
+  }
+  
+  .layout {
+    /* เพิ่มพื้นที่ด้านล่าง เพื่อไม่ให้เนื้อหาโดน Menu Bar บัง */
+    padding-bottom: 90px; 
+  }
+
+  /* ปรับ Sidebar ให้เป็น Navigation Bar ลอยอยู่ด้านล่าง */
+  .sidebar {
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin: 0;
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.1);
+    justify-content: flex-start;
+    overflow-x: auto; /* ให้ปุ่มเลื่อนซ้ายขวาได้ถ้ามีเยอะ */
+    z-index: 100;
+    border-radius: 20px 20px 0 0; /* ทำมุมบนให้โค้งมน */
+    gap: 12px;
+  }
+  
+  /* สีของ Menu bar ในโหมดมืด */
+  .theme-dark .sidebar {
+    background: rgba(76, 93, 140, 0.95);
+    border-top: 1px solid #F5ECD1;
+  }
+
+  /* ย่อขนาดปุ่มใน Menu Bar ให้เหมาะกับมือถือ */
+  .sidebar-btn {
+    min-width: auto;
+    padding: 10px 16px;
+    font-size: 13px;
+    white-space: nowrap; /* ไม่ให้ข้อความตกบรรทัด */
+  }
+  
+  .content {
+    margin: 0 auto; 
+  }
+}
+
+/* =========================================================
+   Responsive: ปรับ Modal (Pop-up) สำหรับมือถือโดยเฉพาะ
+   ========================================================= */
+@media (max-width: 600px) {
+  /* 1. ดัน Pop-up ลงมาไม่ให้ปุ่ม X ชนกับปุ่มปรับ Theme */
+  .modal-overlay {
+    padding-top: 70px;  /* เว้นระยะด้านบนหนีปุ่ม Dark/Light mode */
+    padding-bottom: 20px;
+    align-items: flex-start; /* ให้กล่องเริ่มแสดงจากด้านบน (ที่เว้นไว้) */
+  }
+
+  .modal-content {
+    max-height: 85vh; /* จำกัดความสูงใหม่หลังจากโดนดันลงมา */
+    padding: 20px;
+  }
+  
+  /* ปรับขนาดตัวหนังสือหัวข้อใน Modal ลงนิดหน่อย */
+  .modal-title {
+    font-size: 18px;
+    padding-right: 30px;
+  }
+
+  /* 2. ลดขนาดความสูงของรูปใน Pop-up ไม่ให้เบียดตัวหนังสือ */
+  .slider-image-container {
+    height: 220px; /* ลดจาก 300px เหลือ 220px */
+    max-height: 30vh; /* บังคับไม่ให้สูงเกิน 30% ของจอ */
+  }
+  
+  .slider-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+  }
+
+  /* ปรับเค้าโครงของการ์ดโปรเจกต์ให้แสดงผลแนวตั้ง */
+  .project-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .project-pic {
+    width: 100%;
+    max-width: 200px;
+    height: 140px;
+  }
+
+}
+
+/* Custom Scrollbar สำหรับ .page-panel (กรอบหลัก) */
+.page-panel::-webkit-scrollbar {
+  width: 8px; 
+}
+
+.page-panel::-webkit-scrollbar-track {
+  background: transparent; 
+}
+
+.page-panel::-webkit-scrollbar-thumb {
+  background: #d7d7d7; 
+  border-radius: 10px; 
+}
+
+.theme-dark .page-panel::-webkit-scrollbar-thumb {
+  background: #818FB4; 
+}
+
+/* =========================================================
+   My Project Page (อิง Layout จาก Activity)
+   ========================================================= */
+.project-content {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto; 
+  gap: 8px;
+  width: 90%; 
+}
+
+.project-card {
+  background: #FFFFFF;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  display: flex;
+  margin-top: 24px;
+  gap: 24px;
+  align-items: flex-start;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
+}
+
+.theme-dark .project-card {
+  background: #818FB4;
+}
+
+/* --- ส่วนของรูปภาพ Placeholder ในการ์ด --- */
+.project-media {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.project-pic {
+  width: 120px;
+  height: 120px;
+  border-radius: 12px;
+  object-fit: cover; /* สำคัญมาก: ทำให้รูปสัดส่วนไม่เบี้ยวเวลาถูกตัดลงกล่องสี่เหลี่ยมจัตุรัส */
+  background-color: #f5f5f5; /* สีพื้นหลังเผื่อรูปยังโหลดไม่เสร็จ */
+  flex-shrink: 0;
+}
+
+/* สำหรับหน้าจอมือถือ (Responsive) */
+@media (max-width: 600px) {
+  .project-pic {
+    width: 100%;
+    max-width: 200px;
+    height: 140px;
+  }
+  .modal-actions {
+    gap: 8px; 
+    flex-wrap: nowrap; 
+    margin-top: 12px; 
+  }
+  
+  .modal-actions .sidebar-btn {
+    padding: 8px 8px; 
+    font-size: 11px; 
+    min-width: auto; 
+    flex: 1; 
+    white-space: nowrap;
+  }
+  .contact-item {
+    gap: 8px; 
+    font-size: 13px; 
+    flex-wrap: nowrap; /* บังคับให้อยู่บรรทัดเดียวกันเสมอ */
+    width: 100%;       /* ให้กล่องกว้างเต็มพื้นที่ */
+    overflow: hidden;  /* ป้องกันเนื้อหาทะลุกรอบ */
+  }
+
+  .contact-item strong {
+    font-size: 13px;
+    flex-shrink: 0; /* ล็อกหัวข้อ (เช่น Email:) ไม่ให้ถูกบีบจนเบี้ยว */
+  }
+
+  .contact-link {
+    font-size: 13px; 
+    line-height: 1.4;
+    white-space: nowrap; /* บังคับข้อความไม่ให้ขึ้นบรรทัดใหม่ */
+    overflow: hidden;    /* ซ่อนข้อความส่วนที่ยาวเกินขอบ */
+    text-overflow: ellipsis; /* ใส่จุดไข่ปลา (...) แทนข้อความที่ล้น */
+    flex-shrink: 1; /* อนุญาตให้กล่องข้อความหดตัวได้เมื่อจอแคบ */
+  }
+
+  .copy-btn {
+    font-size: 11px;
+    padding: 4px 8px;
+    flex-shrink: 0; /* ล็อกปุ่ม Copy ไม่ให้หดตัวและไม่ให้ตกบรรทัด */
+  }
+  
+}
+
+
+/* ลิ้งก์ดาวน์โหลดใต้รูปภาพ */
+.project-view {
+  font-family: 'IntelOneMono', monospace;
+  font-size: 14px;
+  color: #4A4A4A;
+  text-decoration: underline;
+  transition: color 0.2s;
+  margin-top: 4px;
+}
+
+.project-view:hover {
+  color: #7FB8E8;
+}
+
+.theme-dark .project-view {
+  color: #F5ECD1;
+}
+
+/* --- ส่วนของข้อความในการ์ด --- */
+.project-text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex-grow: 1;
+}
+
+.project-title {
+  margin: 0;
+  color: #2E3A57;
+  font-size: 18px;
+  font-family: 'IntelOneMono1', monospace;
+}
+
+.project-desc {
+  margin: 0;
+  color: #4A4A4A;
+  line-height: 1.5;
+  font-size: 15px;
+}
+
+.theme-dark .project-title,
+.theme-dark .project-desc {
+  color: #ffffff;
+}
+
+/* =========================================================
+   Project Modal (Pop-up เวลากดเข้าการ์ด)
+   ========================================================= */
+.project-modal {
+  max-width: 700px;
+}
+.project-modal .modal-actions {
+  margin-top: 4px; 
+}
+
+.project-video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  height: 0;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 8px;
+}
+
+.project-video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Responsive สำหรับมือถือ */
+@media (max-width: 600px) {
+  .project-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .project-pic__placeholder {
+    width: 100%;
+    max-width: 200px;
+    height: 140px;
+  }
+}
+
+/* =========================================================
+   Modal Actions (กลุ่มปุ่มด้านล่าง Pop-up)
+   ========================================================= */
+.modal-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center; /* จัดปุ่มให้อยู่กึ่งกลาง */
+  flex-wrap: wrap; /* ปัดปุ่มลงบรรทัดใหม่ถ้าจอมือถือเล็กเกินไป */
+  margin-top: 16px;
+}
+
+/* ปรับแต่งปุ่มให้ข้อความอยู่ตรงกลาง และจัดการขนาดในหน้าต่างเล็กๆ */
+.modal-actions .sidebar-btn {
+  text-align: center;
+  text-decoration: none;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =========================================================================
+   INDIE WEB RESKIN
+   Same palette, same layout/structure — just given a raw, hand-crafted,
+   zine/scrapbook feel: paper grain, hard offset "sticker" shadows instead
+   of soft blurred ones, thicker outlines, and a little tilt on cards.
+   This block is appended after everything above, so it wins the cascade
+   without touching a single original rule.
+   ========================================================================= */
+
+/* ---- paper grain on the page background (keeps the exact same colors) ---- */
+.page.theme-light {
+  background-color: #BFE3F9;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.45) 1px, transparent 1.4px);
+  background-size: 5px 5px;
+}
+
+.page.theme-dark {
+  background-color: #4C5D8C;
+  background-image: radial-gradient(rgba(0, 0, 0, 0.18) 1px, transparent 1.4px);
+  background-size: 5px 5px;
+}
+
+/* ---- blobs get a faint hand-inked outline instead of a flat silhouette ---- */
+.blob {
+  border: 3px solid rgba(0, 0, 0, 0.07);
+}
+
+.theme-dark .blob {
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+/* ---- theme toggle: a hairline outline reads more "cut paper" ---- */
+.theme-toggle__switch.is-light {
+  border-color: #2E3A57;
+}
+
+/* ---- home card: no glass blur, hard sticker shadow, slight tilt ---- */
+.card {
+  backdrop-filter: none;
+  border: 3px solid #2E3A57;
+  border-radius: 24px;
+  box-shadow: 7px 7px 0 #2E3A57;
+  transform: rotate(-1deg);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
+}
+
+.card:hover {
+  transform: rotate(0deg) translate(-2px, -2px);
+  box-shadow: 9px 9px 0 #2E3A57;
+}
+
+.theme-dark .card {
+  border-color: #F5ECD1;
+  box-shadow: 7px 7px 0 #F5ECD1;
+}
+
+.theme-dark .card:hover {
+  box-shadow: 9px 9px 0 #F5ECD1;
+}
+
+.card h1 {
+  border: 2px solid #002998;
+  border-radius: 14px;
+  box-shadow: 3px 3px 0 rgba(0, 41, 152, 0.3);
+  transform: rotate(1deg);
+}
+
+.theme-dark .card h1 {
+  border-color: #F5ECD1;
+  box-shadow: 3px 3px 0 rgba(245, 236, 209, 0.3);
+}
+
+.card-flag {
+  transform: rotate(-4deg);
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+.card-image {
+  border: 3px solid #FFFCEF;
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.12);
+}
+
+.theme-dark .card-image {
+  border-color: #E4D3A0;
+}
+
+/* ---- nav buttons: outlined "stickers" that lean, then straighten on hover ---- */
+.nav-card {
+  border: 2.5px solid #3B4C7B;
+  border-radius: 14px;
+  box-shadow: 4px 4px 0 #3B4C7B;
+}
+
+.nav-row .nav-card:nth-child(odd) {
+  transform: rotate(-2deg);
+}
+
+.nav-row .nav-card:nth-child(even) {
+  transform: rotate(2deg);
+}
+
+.nav-card:hover {
+  transform: translate(-2px, -2px) rotate(0deg);
+  box-shadow: 6px 6px 0 #3B4C7B;
+}
+
+.theme-dark .nav-card {
+  border-color: #F5ECD1;
+  box-shadow: 4px 4px 0 #F5ECD1;
+}
+
+.theme-dark .nav-card:hover {
+  box-shadow: 6px 6px 0 #F5ECD1;
+}
+
+/* ---- sidebar buttons: hard shadow instead of soft lift ---- */
+.sidebar-btn {
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.15);
+}
+
+.sidebar-btn:hover {
+  transform: translate(-2px, -3px);
+  box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.15);
+}
+
+.sidebar-btn.is-active {
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.25);
+}
+
+/* ---- main content panel + header: give them a visible ink outline ---- */
+.content {
+  border: 3px solid #2E3A57;
+  border-radius: 12px;
+}
+
+.theme-dark .content {
+  border-color: #F5ECD1;
+}
+
+.content-header {
+  border-color: #2E3A57;
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+.theme-dark .content-header {
+  border-color: #F5ECD1;
+}
+
+/* ---- content cards (about / cert / activity / project): outline + hard shadow ---- */
+.about-content,
+.pdf-viewer-wrapper,
+.activity-card,
+.project-card {
+  border: 2.5px solid rgba(46, 58, 87, 0.35);
+  box-shadow: 5px 5px 0 rgba(46, 58, 87, 0.18);
+}
+
+.theme-dark .about-content,
+.theme-dark .pdf-viewer-wrapper,
+.theme-dark .activity-card,
+.theme-dark .project-card {
+  border-color: rgba(245, 236, 209, 0.4);
+  box-shadow: 5px 5px 0 rgba(245, 236, 209, 0.18);
+}
+
+/* เอียงสลับซ้าย-ขวาเหมือนปุ่ม nav-card หน้า Home */
+.activity-content .activity-card:nth-child(odd) {
+  transform: rotate(-1deg);
+}
+
+.activity-content .activity-card:nth-child(even) {
+  transform: rotate(1deg);
+}
+
+.project-content .project-card:nth-child(odd) {
+  transform: rotate(-1deg);
+}
+
+.project-content .project-card:nth-child(even) {
+  transform: rotate(1deg);
+}
+
+.activity-card:hover {
+  transform: translate(-2px, -3px) rotate(0deg);
+}
+
+.project-card:hover {
+  transform: translate(-2px, -4px) rotate(0deg);
+  box-shadow: 7px 7px 0 rgba(46, 58, 87, 0.18);
+}
+
+.theme-dark .project-card:hover {
+  box-shadow: 7px 7px 0 rgba(245, 236, 209, 0.18);
+}
+
+/* ---- polaroid-style frame on the profile photo & certificate badge ---- */
+.about-pic__img {
+  border: 4px solid #FFFFFF;
+}
+
+.badge-pic {
+  border: 4px solid #FFFFFF;
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.12);
+  transform: rotate(-1deg);
+}
+
+.activity-pic__placeholder,
+.project-pic {
+  border: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+/* ---- pop-up modal: thicker frame, hard drop shadow ---- */
+.modal-content {
+  border: 3px solid #2E3A57;
+  box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.22);
+}
+
+.theme-dark .modal-content {
+  border-color: #F5ECD1;
+}
+
+.modal-close-btn {
+  border: 2px solid rgba(0, 0, 0, 0.15);
+}
+
+.slider-btn {
+  border: 2px solid rgba(59, 76, 123, 0.25);
+}
+
+.theme-dark .slider-btn {
+  border-color: rgba(245, 236, 209, 0.3);
+}
+
+/* ---- copy button: crisp instead of soft ---- */
+.copy-btn {
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+}
+
+.copy-btn:hover {
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+/* ---- email form: flat ink-outline fields instead of soft inset shadow ---- */
+.email-textarea,
+.email-input {
+  border: 2px solid #2E3A57;
+  box-shadow: 3px 3px 0 rgba(46, 58, 87, 0.12);
+}
+
+.theme-dark .email-textarea,
+.theme-dark .email-input {
+  border-color: #F5ECD1;
+  box-shadow: 3px 3px 0 rgba(245, 236, 209, 0.12);
+}
+
+.email-submit-btn {
+  border: 2px solid #3B4C7B;
+  box-shadow: 3px 3px 0 #3B4C7B;
+}
+
+.email-submit-btn:hover {
+  box-shadow: 4px 4px 0 #3B4C7B;
+}
+
+.email-submit-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 #3B4C7B;
+}
+
+.theme-dark .email-submit-btn {
+  border-color: #F5ECD1;
+  box-shadow: 3px 3px 0 #F5ECD1;
+}
+
+.theme-dark .email-submit-btn:hover {
+  box-shadow: 4px 4px 0 #F5ECD1;
+}
+
+.theme-dark .email-submit-btn:active {
+  box-shadow: 1px 1px 0 #F5ECD1;
+}
+
+/* ---- keep the tilts from ever overflowing tight mobile layouts ---- */
+@media (max-width: 600px) {
+  .card,
+  .nav-card,
+  .activity-card,
+  .project-card,
+  .badge-pic,
+  .card h1,
+  .card-flag {
+    transform: none !important;
+  }
+}
+
+/* =========================================================================
+   Skills — shown as chip/tag groups instead of a wall of plain text
+   ========================================================================= */
+.skill-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 8px;
+}
+
+.skill-group__title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 10px;
+  color: #2E3A57;
+  font-size: 15px;
+  font-family: 'IntelOneMono1', monospace;
+  letter-spacing: 0.02em;
+}
+
+.theme-dark .skill-group__title {
+  color: #ffffff;
+}
+
+.skill-group__icon {
+  font-size: 16px;
+  line-height: 1;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 10px;
+}
+
+.skill-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: #FFFCEF;
+  border: 2px solid #7FB8E8;
+  color: #3B4C7B;
+  font-family: 'IntelOneMono', monospace;
+  font-size: 12.5px;
+  font-weight: 700;
+  box-shadow: 2px 2px 0 rgba(46, 58, 87, 0.15);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.3s ease;
+}
+
+.skill-tag:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 rgba(46, 58, 87, 0.2);
+}
+
+.theme-dark .skill-tag {
+  background: #3E3865;
+  border-color: #F5ECD1;
+  color: #F5ECD1;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.25);
+}
+
+.theme-dark .skill-tag:hover {
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.3);
+}
+
+.skill-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 14px 6px 10px;
+  border-radius: 999px;
+  background: #FFFCEF;
+  border: 2px solid #7FB8E8;
+  color: #3B4C7B;
+  font-family: 'IntelOneMono', monospace;
+  font-size: 12.5px;
+  font-weight: 700;
+  box-shadow: 2px 2px 0 rgba(46, 58, 87, 0.15);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.3s ease;
+}
+
+.skill-chip__logo {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.skill-chip:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 rgba(46, 58, 87, 0.2);
+}
+
+.theme-dark .skill-chip {
+  background: #3E3865;
+  border-color: #F5ECD1;
+  color: #F5ECD1;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.25);
+}
+
+.theme-dark .skill-chip:hover {
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 600px) {
+  .skill-tag,
+  .skill-chip {
+    font-size: 11.5px;
+    padding: 5px 12px;
+  }
+
+  .skill-chip {
+    padding: 5px 12px 5px 8px;
+  }
+
+  .skill-chip__logo {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+/* ---------- Contact page: icon badges + row layout ---------- */
+.contact-list {
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.contact-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #FFFCEF;
+  border: 2px solid #7FB8E8;
+  font-size: 16px;
+}
+
+.contact-icon__img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+.theme-dark .contact-icon {
+  background: #3E3865;
+  border-color: #F5ECD1;
+}
+
+.contact-label {
+  min-width: 44px;
+  font-family: 'IntelOneMono1', monospace;
+  font-size: 14px;
+  font-weight: 700;
+  color: #2E3A57;
+}
+
+.theme-dark .contact-label {
+  color: #F5ECD1;
+}
+
+/* แถว Social ที่มีหลายลิงก์ในไอเท็มเดียว ให้ลิงก์แต่ละอันมีไอคอนของตัวเอง */
+.contact-item--social {
+  align-items: flex-start;
+}
+
+.contact-social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.contact-link--social {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.contact-link--social .contact-icon__img {
+  width: 16px;
+  height: 16px;
+}
+
+@media (max-width: 600px) {
+  .contact-icon {
+    width: 28px;
+    height: 28px;
+  }
+  .contact-icon__img {
+    width: 15px;
+    height: 15px;
+  }
+  .contact-label {
+    min-width: 38px;
+    font-size: 12.5px;
+  }
+}
+
+/* ---------- Modal image zoom (click to zoom in/out) ---------- */
+.slider-image {
+  cursor: zoom-in;
+  transition: transform 0.25s ease;
+}
+
+.slider-image.is-zoomed {
+  transform: scale(2.2);
+  cursor: zoom-out;
+}
+
+/* กันไม่ให้รูปที่ซูมล้นออกนอกกรอบสไลเดอร์ */
+.slider-image-container {
+  touch-action: manipulation;
+}
+
+/* ตอนซูมอยู่ ปิดปุ่มเลื่อนซ้าย-ขวาชั่วคราว ไม่ให้เผลอกดสลับรูปทั้งที่ยังซูมอยู่ */
+.slider-image.is-zoomed ~ .slider-btn,
+.modal-slider:has(.slider-image.is-zoomed) .slider-btn {
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+@media (max-width: 600px) {
+  .slider-image.is-zoomed {
+    transform: scale(1.8); /* จอเล็กซูมน้อยกว่านิดหน่อยกันล้นจนหาไม่เจอ */
+  }
+}
