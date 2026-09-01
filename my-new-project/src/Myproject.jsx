@@ -14,27 +14,12 @@ function MyProject() {
   const [zoomOrigin, setZoomOrigin] = useState('center');
 
    const projects = [
-    {
-      id: 5,
-      title: "Design System UX/UI shopping application (2023)",
-      shortDesc: "Shopping application UX/UI design by using Figma",
-      fullDesc: "Shopping application UX/UI design. Start with mock-up customer persona.",
-      projectLink: "https://www.figma.com/design/n5QO1f9MZniJs6C8RqT5k1/Design-system?node-id=0-1&t=HDkxnQ475GtHIBOx-1",
-      docLink: "",
-      downloadLink: "",
-      coverImage: "https://i.postimg.cc/sfmk9ZVf/uxuipic.png",
-      media: [
-        { type: 'image', url: "https://i.postimg.cc/sfmk9ZVf/uxuipic.png" },
-        { type: 'image', url: "https://i.postimg.cc/3NVgsKjL/uxuipic2.png" },
-        { type: 'image', url: "https://i.postimg.cc/GtVkWcP5/uxuipic3.png" },
-        { type: 'video', url: "https://drive.google.com/file/d/18ufHbSMO2fJKM0sWc8-rad1xfVQwXXFi/preview" }
-      ]
-    },
+    
     {
       id: 1,
       title: "Sticky Rogue Project (2026)",
       shortDesc: "Project roguelike RPG mobile game for class mobile application development using .NET MAUI Framework.",
-      fullDesc: "StickyRogue is android mobile application project development by using .NET MAUI. In this project I take responsibility as co-developer, game features design and character design in this project. Download is apk file.",
+      fullDesc: "StickyRogue is android mobile application project development by using .NET MAUI in mobile application course. StickyRogue is roguelike mobile game that players choose one action to perform, and after each action, their turn ends, and the enemy's turn begins. The system keeps track of how far the player has progressed in each round. Download is apk file.",
       projectLink: "https://github.com/aps-pr-dbs/StickyRogueProjectSln.git",
       docLink: "https://drive.google.com/file/d/10NIrQcRfw8-yL9SZ0BCXzONZBAX2PEen/view?usp=sharing", 
       downloadLink: "https://www.upload-apk.com/dvgJuIzuXxx2SUQ",
@@ -53,7 +38,7 @@ function MyProject() {
       id: 2,
       title: "BU Smart Lab Management System (2026)",
       shortDesc: "Smart lab management system for computer lab (during development)",
-      fullDesc: "Smart lab management system for computer lab, using ai agent for track user and track time. Tect Stack : React, MUI, axious, VITE, Fast API, SQLAlchemy, sapabase, PostgreSQL, DeepFace, SilenceFace anti spoofing, PYQT6, psutil",
+      fullDesc: "BU Smartlab Management System is an intelligent lab management system using an AI agent. It can help manage computer usage time in the lab, detect access to various applications on lab computers to prevent misuse, and recognize faces of those booking lab access. Those who have not registered and booked lab access through the website beforehand will not be able to scan their faces to enter the lab. Tect Stack : React, MUI, axious, VITE, Fast API, SQLAlchemy, sapabase, PostgreSQL, DeepFace, SilenceFace anti spoofing, PYQT6, psutil",
       projectLink: "https://busmartlab.space/",
       docLink: "https://drive.google.com/file/d/1J6pb-PnRhTlTBlYZmLKV3DQXKNQ1Ac_w/view?usp=sharing", 
       downloadLink: "https://github.com/Chonlasit-junn/smart-lab-system.git",
@@ -66,26 +51,10 @@ function MyProject() {
       ]
     },
     {
-      id: 4,
-      title: "User Management System (2024)",
-      shortDesc: "User Management System website base via azure (azure database is already expired, now just mockup demo)",
-      fullDesc: "User Management System website base via azure, using azure as cloud database for kept user data and email data. I take responsibility as backend and frontend co-developer with my friend.",
-      projectLink: "https://t1mothee-001-site1.jtempurl.com/",
-      docLink: "https://drive.google.com/file/d/1kQ2Yd2livuO_aknhMvQCy77Wvw3Dunju/view?usp=sharing", 
-      downloadLink: "https://github.com/pacharawan-bu/FinalProject_OFSD.git",
-      media: [
-        { type: 'image', url: "https://i.postimg.cc/K8pXFjGz/ofsd1.png" },
-        { type: 'image', url: "https://i.postimg.cc/NjChYFsF/ofsd2.png" },
-        { type: 'image', url: "https://i.postimg.cc/JzYwm0rt/ofsd3.png" },
-        { type: 'image', url: "https://i.postimg.cc/Z5skZnbC/ofsd4.png" },
-        { type: 'video', url: "https://drive.google.com/file/d/1xsuHCzpKfjpzFXBEhiCzav1dLWfAGeEW/preview"}
-      ]
-    },
-    {
       id: 3,
       title: "Som Rue Thai Hotel (2025)",
       shortDesc: "Hotel's tenants database management base on Python.",
-      fullDesc: "Som Rue Thai Hotel is application that use for manage hotel room and tenants data develop by using Python. This project focus on database design and database management, in this project I take responsibility on coding billing & invoice management system.",
+      fullDesc: "SomRueThai Hotel is a property management application that is part of the Database course. SomRueThai Hotel is a system designed to manage guest lists for hotel/accommodation/apartment rentals. This project is part of database course focus on database design and database management, in this project I take responsibility on coding billing & invoice management system.",
       projectLink: "https://github.com/pacharawan-bu/SomRueThaiHotel-db.git",
       docLink: "https://drive.google.com/file/d/10ChlK1s7NZgoJzbIp1KOVnYUqXtHkqPa/view?usp=sharing", 
       downloadLink: "",
@@ -99,6 +68,39 @@ function MyProject() {
 
       ]
     },
+    {
+      id: 4,
+      title: "User Management System (2024)",
+      shortDesc: "User Management System website base via azure (azure database is already expired, now just mockup demo)",
+      fullDesc: "User Management System website base via azure, using azure as cloud database for kept user data and email data. This project is part of software engineering course. This project was development by five peoples, I was responsible as backend and frontend co-developer with teammates.",
+      projectLink: "https://t1mothee-001-site1.jtempurl.com/",
+      docLink: "https://drive.google.com/file/d/1kQ2Yd2livuO_aknhMvQCy77Wvw3Dunju/view?usp=sharing", 
+      downloadLink: "https://github.com/pacharawan-bu/FinalProject_OFSD.git",
+      media: [
+        { type: 'image', url: "https://i.postimg.cc/K8pXFjGz/ofsd1.png" },
+        { type: 'image', url: "https://i.postimg.cc/NjChYFsF/ofsd2.png" },
+        { type: 'image', url: "https://i.postimg.cc/JzYwm0rt/ofsd3.png" },
+        { type: 'image', url: "https://i.postimg.cc/Z5skZnbC/ofsd4.png" },
+        { type: 'video', url: "https://drive.google.com/file/d/1xsuHCzpKfjpzFXBEhiCzav1dLWfAGeEW/preview"}
+      ]
+    },
+    {
+      id: 5,
+      title: "Design System UX/UI shopping application (2023)",
+      shortDesc: "Shopping application UX/UI design by using Figma",
+      fullDesc: "Shopping application UX/UI design. Start with mock-up customer persona. This project is a part of Human-Computer interaction course.",
+      projectLink: "https://www.figma.com/design/n5QO1f9MZniJs6C8RqT5k1/Design-system?node-id=0-1&t=HDkxnQ475GtHIBOx-1",
+      docLink: "",
+      downloadLink: "",
+      coverImage: "https://i.postimg.cc/sfmk9ZVf/uxuipic.png",
+      media: [
+        { type: 'image', url: "https://i.postimg.cc/sfmk9ZVf/uxuipic.png" },
+        { type: 'image', url: "https://i.postimg.cc/3NVgsKjL/uxuipic2.png" },
+        { type: 'image', url: "https://i.postimg.cc/GtVkWcP5/uxuipic3.png" },
+        { type: 'video', url: "https://drive.google.com/file/d/18ufHbSMO2fJKM0sWc8-rad1xfVQwXXFi/preview" }
+      ]
+    },
+    
     {
       id: 6,
       title: "Artworks",
