@@ -15,7 +15,7 @@ function MyProject() {
 
    const projects = [
     {
-      id: 1,
+      id: 5,
       title: "Design System UX/UI shopping application (2023)",
       shortDesc: "Shopping application UX/UI design by using Figma",
       fullDesc: "Shopping application UX/UI design. Start with mock-up customer persona.",
@@ -31,7 +31,7 @@ function MyProject() {
       ]
     },
     {
-      id: 2,
+      id: 1,
       title: "Sticky Rogue Project (2026)",
       shortDesc: "Project roguelike RPG mobile game for class mobile application development using .NET MAUI Framework.",
       fullDesc: "StickyRogue is android mobile application project development by using .NET MAUI. In this project I take responsibility as co-developer, game features design and character design in this project. Download is apk file.",
@@ -50,7 +50,7 @@ function MyProject() {
       ]
     },
     {
-      id: 3,
+      id: 2,
       title: "BU Smart Lab Management System (2026)",
       shortDesc: "Smart lab management system for computer lab (during development)",
       fullDesc: "Smart lab management system for computer lab, using ai agent for track user and track time. Tect Stack : React, MUI, axious, VITE, Fast API, SQLAlchemy, sapabase, PostgreSQL, DeepFace, SilenceFace anti spoofing, PYQT6, psutil",
@@ -82,7 +82,7 @@ function MyProject() {
       ]
     },
     {
-      id: 5,
+      id: 3,
       title: "Som Rue Thai Hotel (2025)",
       shortDesc: "Hotel's tenants database management base on Python.",
       fullDesc: "Som Rue Thai Hotel is application that use for manage hotel room and tenants data develop by using Python. This project focus on database design and database management, in this project I take responsibility on coding billing & invoice management system.",
